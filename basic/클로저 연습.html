@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head> </head>
+  <body>
+    <script>
+      function make_multiplier(factor) {
+        function multiplier(number) {
+          return number * factor;
+        }
+
+        return multiplier;
+      }
+
+      let result = make_multiplier(3);
+    //   console.log(typeof(result),(result));
+
+      let result2 = result(5);
+      console.log(result2);
+
+      //내부함수의 환경을 기억하고 닫아라
+      //그렇게 닫은 놈 => closure
+
+    </script>
+  </body>
+</html>
