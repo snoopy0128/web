@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>주기적으로 실행하기</title>
+  <link rel="stylesheet" href="style_js.css">
+</head>
+<body style="text-align: center">
+  <h2>현재 시각</h2><hr>
+  <h1 id="clock">00:00:00</h1>
+  <!-- <h1 id="clock">은 실제 시간이 표시될 자리
+       처음에는 “00:00:00”이라고 되어 있지만
+       JavaScript가 계속 바꾸게 됨! -->
+  <script>
+    function updateClock() {
+      const now = new Date();
+      // new Date() : 지금 정확한 날짜와 시간을 담은 객체를 만듦
+      const hours = now.getHours().toString().padStart(2, '0');
+      // now.getHours() → 현재 시(hour)
+      // toString().padStart(2, '0') : 두 자리 수 맞추기
+      // ex) 9초 -> "09"
+      const minutes = now.getMinutes().toString().padStart(2, '0');
+      // now.getMinutes() → 현재 분
+      const seconds = now.getSeconds().toString().padStart(2, '0');
+      // now.getSeconds() → 현재 초
+      const timeString = `${hours}:${minutes}:${seconds}`;
+      // 시:분:초 문자열 만들고 timeString에 할당
+      const clockElement = document.getElementById('clock');
+      // id="clock" 인 <h1>을 찾고
+      clockElement.textContent = timeString;
+      // timeString안의 현재 시간을 넣음
+    }
+    setInterval(updateClock, 1000);
+    // 이 함수를 1초마다 반복하기
+  </script>
+</body>
+</html>
